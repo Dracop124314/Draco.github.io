@@ -3,7 +3,7 @@
 // Function to fetch and display the user's IP and geolocation
 function fetchUserIP() {
     // Fetch the user's IP and geolocation data from the ip-api.com API
-    fetch('http://ip-api.com/json')
+    fetch('https://ip-api.com/json')
         .then(response => response.json()) // Parse the response as JSON
         .then(data => {
             const ip = data.query;             // Get IP address (the IP is under 'query')
