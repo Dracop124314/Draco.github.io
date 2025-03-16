@@ -1,19 +1,16 @@
 // Fetch user's IP address and geolocation information
 function fetchUserIP() {
-    fetch('https://ip-api.com/json') // Fetching IP information from ip-api.com
+    fetch('https://cors-anywhere.herokuapp.com/https://ip-api.com/json')
         .then(response => response.json()) // Convert response to JSON
         .then(data => {
-            const ip = data.query;             // Get the user's IP address
-            const city = data.city || 'N/A';   // Get city (or 'N/A' if not available)
+            const ip = data.query || 'N/A'; // Get the user's IP address
+            const city = data.city || 'N/A'; // Get city (or 'N/A' if not available)
             const country = data.country || 'N/A'; // Get country (or 'N/A' if not available)
             const location = `${city}, ${country}`; // Combine city and country for location
 
             // Replace the text "Loading..." with actual data
-            document.getElementById('ip-address').textContent = ip; 
+            document.getElementById('ip-address').textContent = ip;
             document.getElementById('location').textContent = location;
-
-            // Optionally, add a class to make the IP address red
-            document.getElementById('ip-address').classList.add('red-text');
         })
         .catch(error => {
             console.error('Error fetching IP info:', error);
