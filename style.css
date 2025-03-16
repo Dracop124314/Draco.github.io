@@ -1,0 +1,73 @@
+/* General Styles */
+body {
+    background-color: black; /* Set background to black */
+    color: white; /* Text color white */
+    font-family: Arial, sans-serif; /* Font style */
+    text-align: center; /* Center all text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the content */
+.container {
+    padding-top: 50px;
+}
+
+/* Red color for the IP address */
+.red-text {
+    color: red;
+    font-weight: bold; /* Make the IP address bold */
+}
+
+/* Style for the navigation menu */
+nav ul {
+    list-style: none; /* Remove bullet points from the menu */
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block; /* Display items in a row */
+    margin-right: 20px; /* Space between the menu items */
+}
+
+nav ul li a {
+    color: white; /* Menu text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: red; /* Change text color to red on hover */
+}
+
+/* Style the title (h1) */
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Style for the IP info section */
+.ip-info {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .ip-info {
+        font-size: 18px;
+    }
+
+    nav ul li {
+        display: block; /* Stack the menu items vertically */
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
