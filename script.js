@@ -2,13 +2,13 @@
 
 // Function to fetch and display the user's IP and geolocation
 function fetchUserIP() {
-    // Fetch the user's IP and geolocation data from the ipinfo.io API
-    fetch('https://ipinfo.io/json') // No API token required for this basic version
+    // Fetch the user's IP and geolocation data from the ip-api.com API
+    fetch('http://ip-api.com/json')
         .then(response => response.json()) // Parse the response as JSON
         .then(data => {
-            const ip = data.ip;              // Get IP address
-            const city = data.city || 'N/A';  // Get city (or 'N/A' if not available)
-            const country = data.country || 'N/A';  // Get country (or 'N/A' if not available)
+            const ip = data.query;             // Get IP address (the IP is under 'query')
+            const city = data.city || 'N/A';   // Get city (or 'N/A' if not available)
+            const country = data.country || 'N/A'; // Get country (or 'N/A' if not available)
             const location = `${city}, ${country}`; // Combine city and country
 
             // Replace the "Loading..." text with the actual IP and location
