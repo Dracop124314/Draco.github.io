@@ -1,9 +1,11 @@
 async function fetchIP() {
     try {
-        let ipResponse = await fetch("https://api64.ipify.org?format=json");
+        // Get IP address
+        let ipResponse = await fetch("https://api.ipify.org?format=json");
         let ipData = await ipResponse.json();
         document.getElementById("ip").textContent = ipData.ip;
-        
+
+        // Get geolocation
         let geoResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
         let geoData = await geoResponse.json();
 
@@ -14,7 +16,7 @@ async function fetchIP() {
         }
 
     } catch (error) {
-        document.getElementById("ip").textContent = "Unable to fetch IP";
+        document.getElementById("ip").textContent = "Unable to fetch IP info";
         document.getElementById("location").textContent = "Unable to fetch location";
     }
 }
