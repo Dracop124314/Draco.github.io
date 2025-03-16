@@ -1,6 +1,6 @@
 # Web Project
 
-Welcome to the Web Project! This is a simple website built with HTML, CSS, and JavaScript that displays the user's IP address and geolocation.
+
 
 ## Features
 
