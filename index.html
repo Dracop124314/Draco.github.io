@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Project</title>
-    <link rel="stylesheet" href="style.css">
+    <title>IP Address Display</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #ip {
+            color: red;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Web Project!</h1>
-        <p>This website displays your IP address and geolocation.</p>
-        
-        <!-- Display the user's IP and location here -->
-        <p>Your IP Address: <span id="ip-address">Loading...</span></p>
-        <p>Your Location: <span id="location">Loading...</span></p>
-    </div>
-    
+    <h1>Welcome to the Web Project!</h1>
+    <p>This website displays your IP address.</p>
+    <p>Your IP Address: <span id="ip">Loading...</span></p>
+
     <script src="script.js"></script>
 </body>
 </html>
