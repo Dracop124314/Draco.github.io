@@ -1,26 +1,21 @@
-/* style.css */
-
-/* Overall page style */
+/* Set a black background */
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    margin-top: 20vh;
 }
 
-/* Container styling */
-.container {
-    padding-top: 50px;
-}
-
-/* Styling for the IP address in red */
-#ip-address {
+/* Style the IP address text in red */
+#ip {
     color: red;
+    font-weight: bold;
+    font-size: 24px;
 }
 
-/* Styling for the loading state */
-span {
-    color: #00ff00; /* Green when loading */
+/* Center the content */
+p {
+    font-size: 18px;
+    margin: 10px 0;
 }
