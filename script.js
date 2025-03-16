@@ -1,9 +1,9 @@
 // script.js
 
 // Function to fetch and display the user's IP and geolocation
-function fetchIPInfo() {
+function fetchUserIP() {
     // Fetch the user's IP and geolocation data from the ipinfo.io API
-    fetch('https://ipinfo.io?token=YOUR_API_TOKEN') // Replace with your actual API token
+    fetch('https://ipinfo.io/json') // No API token required for this basic version
         .then(response => response.json()) // Parse the response as JSON
         .then(data => {
             const ip = data.ip;              // Get IP address
@@ -27,4 +27,4 @@ function fetchIPInfo() {
 }
 
 // Call the function when the page loads
-window.onload = fetchIPInfo;
+window.onload = fetchUserIP;
