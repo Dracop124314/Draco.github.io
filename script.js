@@ -1,23 +1,14 @@
-// Fetch the user's IP address
 fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => {
-        // Show IP on the page
-        document.getElementById('ip').textContent = data.ip;
+        let userIP = data.ip;
+        document.getElementById('ip').textContent = userIP;
 
-        // Fetch geolocation data based on IP
-        return fetch(`http://ip-api.com/json/${data.ip}`);
+        // Send the IP to your logging service
+        fetch('YOUR_REQUESTBIN_URL_HERE', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ip: userIP, timestamp: new Date() })
+        });
     })
-    .then(response => response.json())
-    .then(locationData => {
-        if (locationData.status === "fail") {
-            document.getElementById('location').textContent = "Unable to fetch location";
-        } else {
-            document.getElementById('location').textContent = `${locationData.city}, ${locationData.country}`;
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-        document.getElementById('ip').textContent = "Unable to fetch IP info";
-        document.getElementById('location').textContent = "Unable to fetch location";
-    });
+    .catch(error => console.error("Error fetching IP:", error));
