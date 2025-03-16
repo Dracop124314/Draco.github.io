@@ -1,9 +1,10 @@
 // Fetch user's IP address and geolocation information
 function fetchUserIP() {
-    // Replace 'YOUR_TOKEN_HERE' with the API token you got from ipinfo.io
-    fetch('https://ipinfo.io/json?token=63383f4df16b70')
+    // Use your provided token
+    fetch('https://ipinfo.io/json?token=63383f4df16b70')  // Your token added here
         .then(response => response.json()) // Convert response to JSON
         .then(data => {
+            console.log(data); // Log the response to the console for debugging
             const ip = data.ip || 'N/A'; // Get the user's IP address
             const city = data.city || 'N/A'; // Get city (or 'N/A' if not available)
             const country = data.country || 'N/A'; // Get country (or 'N/A' if not available)
