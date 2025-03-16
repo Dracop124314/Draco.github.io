@@ -1,18 +1,22 @@
-// Fetch user's public IP address  
-fetch('https://api64.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('ip').textContent = data.ip;
+async function fetchIP() {
+    try {
+        let ipResponse = await fetch("https://api64.ipify.org?format=json");
+        let ipData = await ipResponse.json();
+        document.getElementById("ip").textContent = ipData.ip;
+        
+        let geoResponse = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
+        let geoData = await geoResponse.json();
 
-        // Fetch geolocation based on IP (HTTPS compatible API)
-        return fetch(`https://ipapi.co/${data.ip}/json/`);
-    })
-    .then(response => response.json())
-    .then(locationData => {
-        document.getElementById('location').textContent = `${locationData.city}, ${locationData.country_name}`;
-    })
-    .catch(error => {
-        console.error("Error fetching IP or location:", error);
-        document.getElementById('ip').textContent = "Unable to fetch IP";
-        document.getElementById('location').textContent = "Unable to fetch location";
-    });
+        if (geoData.city && geoData.country_name) {
+            document.getElementById("location").textContent = `${geoData.city}, ${geoData.country_name}`;
+        } else {
+            document.getElementById("location").textContent = "Unable to fetch location";
+        }
+
+    } catch (error) {
+        document.getElementById("ip").textContent = "Unable to fetch IP";
+        document.getElementById("location").textContent = "Unable to fetch location";
+    }
+}
+
+fetchIP();
